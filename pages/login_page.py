@@ -19,3 +19,7 @@ class LoginPage(PageBase):
         self.send_keys(LoginLocators.USERNAME_INPUT, self.username)
         self.send_keys(LoginLocators.PASSWORD_INPUT, self.password)
         self.click(LoginLocators.LOGIN_BUTTON)
+
+    def validation(self):
+        self.wait_for_visibility(LoginLocators.DASHBOARD_TEXT)
+        assert self.is_element_displayed(LoginLocators.DASHBOARD_TEXT), "dashboard not displayed"
